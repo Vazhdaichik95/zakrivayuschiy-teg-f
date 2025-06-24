@@ -5,4 +5,6 @@
   --weight-text-card: 400;
   --weight-title-card: 700;
   --header-inline-size: min(700px, 100vi);
+  --main-color: #000;
+  --accent-color: #fff;
 }
