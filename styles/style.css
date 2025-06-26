@@ -15,6 +15,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-variation-settings: "wgt" var(--weight-text-card);
+  background-image: var(--background-pattern);
 }
 
 .header {
@@ -72,6 +73,35 @@
   display: block;
 }
 
+.card__item:nth-of-type(2) .card__image {
+  filter: saturate(30%);
+}
+
+.card__item:nth-of-type(3) .card__image {
+  filter: contrast(100%) saturate(300%) brightness(100%);
+}
+
+.card__item:nth-of-type(4) .card__image {
+  filter: saturate(200%) grayscale(50%) hue-rotate(25deg) sepia(30%) contrast(100%) brightness(100%);
+}
+
+.card__item:nth-of-type(5) .card__image {
+  filter: saturate(220%) invert(10%);
+}
+
+.card__item:nth-of-type(6) .card__image {
+  filter: saturate(30%) sepia(60%) invert(20%) grayscale(50%) contrast(200%);
+}
+
+.card__item:nth-of-type(7) .card__image {
+  filter: blur(3px);
+}
+
+.card__item:nth-of-type(8) .card__image {
+  filter: invert(30%) contrast(200%);
+}
+
+
 .card__image-label {
   font-family: var(--accent-font-family, 'PressStart2P'), sans-serif;
   font-size: 14px;
@@ -124,11 +154,54 @@
 
 .card__icon-button:focus-visible {
   outline: none;
-  border-color: var(--accent-color, #000);
+  border-color: var(--contour-color, #000);
 }
 
 .card__icon-button:focus {
   outline: none;
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--contour-color, #000);
+  transition: fill .3s linear .05s; 
+}
+
+.card__icon-button:hover .core { 
+  fill: var(--contour-color, #000);
+  transition: fill .3s linear; 
+}
+
+.card__icon-button:active .main-body {
+  fill: var(--animation-fill-color, #ff0000);
+  transition: fill .3s linear .05s; 
+}
+
+.card__icon-button:active .core { 
+  fill: var(--animation-fill-color, #ff0000);
+  transition: fill .3s linear; 
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color, #ff0000);
+  transition: fill .3s linear .05s; 
+}
+
+.like-icon.is-liked .core { 
+  fill: var(--animation-fill-color, #ff0000);
+  transition: fill .3s linear; 
+}
+
+.like-icon.is-liked .contour { 
+  fill: var(--animation-fill-color, #ff0000);
+  transition: fill .3s linear 0.06s; 
+}
+
+.is-liked .heart {
+  animation: like-skale .3s ease-in .1s alternate;
+}
+
+.is-liked .sparks {
+  animation: like-shine .3s ease-in .3s alternate;
 }
 
 .like-icon {
@@ -184,6 +257,12 @@
   width: 100%;
 }
 
+.button__text {
+  color: var(--main-color, #fff);
+  mix-blend-mode: difference;
+  z-index: 10;
+}
+
 .save__button {
   cursor: pointer;
   position: relative;
@@ -206,7 +285,93 @@
   height: 21px;
   margin-right: 8px;
   stroke: var(--main-color, #fff);
-  mix-blend-mode: difference;
   z-index: 10;
+  mix-blend-mode: difference;
+}
+
+.modal-window {
+  width: 357px;
+  background-color: var(--main-color, #fff);
+
+  font-family: var(--accent-font-family, 'PressStart2P'), sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+
+  padding: 32px 42px 32px;
+  border: 2px solid var(--accent-color, #000);
+}
+
+.modal-window__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-window__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-window__text {
+  display: block;
+  margin-left: 20px;
+  line-height: 150%;
+  text-transform: uppercase;
+  color: var(--accent-color, #000);
+}
+
+.modal-window__image_floppy {
+  stroke: var(--accent-color, #000);
+  z-index: 10;
+  width: 90px;
+  height: 40px;
+}
+
+.modal-window__button {
+  width: 257px;
+  height: 38px;
+  margin-top: 30px;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.8);
+} 
+
+@media (width <= 375px) {
+  body {
+    min-height: 100vh;
+  }  
+  
+  .header {
+    padding-top: 120px;
+  }
+
+  .a {
+    font-size: 49px;
+  }
+
+  .h1 {
+    font-size: 14px;
+  }
+
+  h2 {
+    line-height: 1.2;
+  }
+
+  .save__button {
+    flex-direction: column;
+    width: 306px;
+    height: 80px;
+    padding: 15px 0;
+    justify-content: space-between; 
+  }
+
+  .button__image-floppy {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+  }
 }
 
