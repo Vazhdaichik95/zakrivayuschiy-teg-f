@@ -242,13 +242,6 @@
   background-color: transparent;
 }
 
-.save__button {
-  margin: 0 auto 80px;
-  width: 340px;
-  height: 55px;
-  background-color: var(--main-color, #fff);
-}
-
 .button-with-text:focus {
   outline: none;
   box-shadow: 2px 2px 0px 0px var(--accent-color, #000);
